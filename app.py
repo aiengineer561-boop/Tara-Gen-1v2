@@ -16,6 +16,21 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+async def root():
+    """Root endpoint - API info"""
+    return {
+        "name": "Event API",
+        "version": "1.0.0",
+        "status": "running",
+        "endpoints": {
+            "POST /event": "Send events",
+            "GET /health": "Health check",
+            "GET /docs": "API documentation"
+        }
+    }
+
+
 class EventRequest(BaseModel):
     eventname: str = Field(..., min_length=1, description="Event identifier")
     # Allow arbitrary additional fields
