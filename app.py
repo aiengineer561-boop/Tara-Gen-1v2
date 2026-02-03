@@ -82,7 +82,7 @@ if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))  # Render sets PORT env var
     
     uvicorn.run(
-        "main:app",
+        "app:app",
         host="0.0.0.0",
         port=port,
         reload=False,  # Disabled for production
